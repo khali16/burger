@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from "./BuildControl.module.css";
 import Tooltip from "react-simple-tooltip";
-import { css } from "styled-components";
 
 class BuildControl extends Component {
   render() {
@@ -9,9 +8,7 @@ class BuildControl extends Component {
       <div className={styles.BuildControl}>
         <Tooltip
           content={this.props.ingredientDescription}
-          customCss={css`
-            white-space: nowrap;
-          `}
+          customCss={"white-space: nowrap;"}
         >
           <b>{this.props.label}</b>
         </Tooltip>
