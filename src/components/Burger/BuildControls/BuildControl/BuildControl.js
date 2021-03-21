@@ -1,29 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
 import styles from "./BuildControl.module.css";
+import Tooltip from "react-simple-tooltip";
+import { css } from "styled-components";
 
-const buildControl = (props) => {
-  console.log(props.ingredientAmount);
-  return (
-    <div className={styles.BuildControl}>
-      <div className={styles.Label}>{props.label}</div>
-      <button
-        className={styles.Less}
-        onClick={props.removed}
-        disabled={props.ingredientAmount <= 0}
-      >
-        Less
-      </button>
-      <button
-        className={styles.More}
-        onClick={props.added}
-        //disabled = iloscIngredientu > 3
-        // ingredientAmount >= 3
-        disabled={props.ingredientAmount >= 3}
-      >
-        More
-      </button>
-    </div>
-  );
-};
+class BuildControl extends Component {
+  render() {
+    return (
+      <div className={styles.BuildControl}>
+        <Tooltip
+          content={this.props.ingredientDescription}
+          customCss={css`
+            white-space: nowrap;
+          `}
+        >
+          <b>{this.props.label}</b>
+        </Tooltip>
 
-export default buildControl;
+        <button
+          className={styles.Less}
+          onClick={this.props.removed}
+          disabled={this.props.ingredientAmount <= 0}
+        >
+          Less
+        </button>
+        <button
+          className={styles.More}
+          onClick={this.props.added}
+          //disabled = iloscIngredientu > 3
+          // ingredientAmount >= 3
+          disabled={this.props.ingredientAmount >= 3}
+        >
+          More
+        </button>
+      </div>
+    );
+  }
+}
+
+export default BuildControl;
