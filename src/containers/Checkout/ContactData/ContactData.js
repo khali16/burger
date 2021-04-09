@@ -184,7 +184,7 @@ class ContactData extends Component {
     }
 
     return (
-      <div className={styles.Cipa}>
+      <div className={styles.ContactData}>
         <h4>Enter your Contact Data:</h4>
         {form}
       </div>
